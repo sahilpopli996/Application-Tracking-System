@@ -36,7 +36,7 @@ export const Register = () => {
     const onSubmit = (data) => {
         console.log(data)
         // send data to backend API
-        fetch("http://localhost:8080/auth/register", {
+        fetch("http://localhost:3004/auth/register", {
             method: "POST",
             headers: {'content-type' : 'application/json'},
             body: JSON.stringify(data)

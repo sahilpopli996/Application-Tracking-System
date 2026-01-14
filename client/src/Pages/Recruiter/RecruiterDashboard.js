@@ -23,7 +23,7 @@ export const RecruiterDashboard = () => {
     // useEffect(() => {
     //     try {
 
-    //         fetch(`http://localhost:8080/recruiter/all-recruiter`)
+    //         fetch(`http://localhost:3004/recruiter/all-recruiter`)
     //             .then((res) => res.json())
     //             .then((data) => {
     //                 let recruiterData = data.filter((recruiter) => recruiter.recruiterID === id);
@@ -33,7 +33,7 @@ export const RecruiterDashboard = () => {
     //             .then( async () => {
     //                 try {
     //                     console.log(recruiter);
-    //                     // const response = await fetch(`http://localhost:8080/jobs/all-jobs/${recruiter.jobID}`)
+    //                     // const response = await fetch(`http://localhost:3004/jobs/all-jobs/${recruiter.jobID}`)
     //                     // const data = await response.json();
     //                     // setJobs(data);
     //                     // console.log(data);
@@ -50,7 +50,7 @@ export const RecruiterDashboard = () => {
     // useEffect(() => {
     //     async function fetchData(){
     //         try {
-    //             const reponse = await fetch(`http://localhost:8080/recruiter/all-recruiter`)
+    //             const reponse = await fetch(`http://localhost:3004/recruiter/all-recruiter`)
     //             const data = await reponse.json();
 
     //             let recruiterData = data.filter((recruiter) => recruiter.recruiterID === id);
@@ -64,7 +64,7 @@ export const RecruiterDashboard = () => {
     //     fetchData();
     //     async function fetchData2(){
     //         try {
-    //             const response = await fetch(`http://localhost:8080/jobs/all-jobs/${recruiter.jobID}`)
+    //             const response = await fetch(`http://localhost:3004/jobs/all-jobs/${recruiter.jobID}`)
     //             const data = await response.json();
     //             setJobs(data);
     //             console.log(data);
@@ -79,7 +79,7 @@ export const RecruiterDashboard = () => {
     useEffect(() => {
         const fetchRecruiterData = async () => {
             try {
-                const response = await fetch(`http://localhost:8080/recruiter/all-recruiter`);
+                const response = await fetch(`http://localhost:3004/recruiter/all-recruiter`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch recruiter data');
                 }
@@ -107,11 +107,11 @@ export const RecruiterDashboard = () => {
 
             const fetchJobsData = async () => {
                 try {
-                    //       const response = await fetch(`http://localhost:8080/jobs/current-jobs/${recruiter.jobID}`);
+                    //       const response = await fetch(`http://localhost:3004/jobs/current-jobs/${recruiter.jobID}`);
                     //       const data = await response.json();
                     //       setJobs(data);
 
-                    fetch(`http://localhost:8080/jobs/all-jobs`)
+                    fetch(`http://localhost:3004/jobs/all-jobs`)
                         .then(response => response.json())
                         .then(data => {
                             const filteredJobs = data.filter(job => job._id === recruiter.jobID)
@@ -133,7 +133,7 @@ export const RecruiterDashboard = () => {
         if (jobs && jobs.applicants) {
             const fetchApplicantsData = async () => {
                 try {
-                    const response = await fetch(`http://localhost:8080/users/all-users`);
+                    const response = await fetch(`http://localhost:3004/users/all-users`);
                     if (!response.ok) {
                         throw new Error('Failed to fetch applicants data');
                     }

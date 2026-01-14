@@ -28,7 +28,7 @@ function App() {
 
   const {loginData, setLoginData} = useContext(LoginContext)
 
-  
+
 
   return (
     <div className="App">

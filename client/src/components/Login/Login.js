@@ -19,10 +19,11 @@ export const Login = () => {
     const onSubmit = async (data) => {
         console.log(data)
         // send data to backend API
-        fetch("http://localhost:8080/auth/login", {
+        fetch("http://localhost:3004/auth/login", {
             method: "POST",
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            
         })
             .then((res) => res.json())
             .then((result) => {

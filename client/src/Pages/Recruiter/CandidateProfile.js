@@ -138,7 +138,7 @@ export const CandidateProfile = () => {
     }, [recruiter]);
     
     const onSubmit = (data) => {
-        const newData = data;
+        let newData = data;
         if(application && candidate){
 
             newData = {
@@ -156,7 +156,7 @@ export const CandidateProfile = () => {
         }
         // console.log(newData);
 
-        fetch("http://localhost:8080/application/post-application", {
+        fetch("http://localhost:3004/application/post-application", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(newData),
