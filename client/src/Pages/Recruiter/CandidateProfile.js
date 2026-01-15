@@ -156,7 +156,7 @@ export const CandidateProfile = () => {
         }
         // console.log(newData);
 
-        fetch("http://localhost:3004/application/post-application", {
+        fetch(`${process.env.REACT_APP_API_URL}/application/post-application`, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(newData),

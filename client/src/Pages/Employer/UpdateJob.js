@@ -13,7 +13,7 @@ export const UpdateJob = () => {
     const initialValue = []
 
     useEffect(() => {
-        fetch(`http://localhost:3004/jobs/current-job/${id}`)
+        fetch(`${process.env.REACT_APP_API_URL}/jobs/current-job/${id}`)
             .then((res) => res.json())
             .then((result) => {
                 setJob(result);
@@ -42,7 +42,7 @@ export const UpdateJob = () => {
     })
 
     useEffect(()=> {
-        fetch(`http://localhost:3004/jobs/current-job/${id}`)
+        fetch(`${process.env.REACT_APP_API_URL}/jobs/current-job/${id}`)
             .then((res) => res.json())
             .then((result) => {
                 setJob(result);
@@ -56,7 +56,7 @@ export const UpdateJob = () => {
         console.log(data)
         
         // send data to backend API
-        fetch("http://localhost:3004/jobs/post-job", {
+        fetch(`${process.env.REACT_APP_API_URL}/jobs/post-job`, {
             method: "POST",
             headers: {'content-type' : 'application/json'},
             body: JSON.stringify(data)

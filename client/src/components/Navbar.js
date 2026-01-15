@@ -68,7 +68,7 @@ export const Navbar = () => {
 
 
     const logoutHandler = async () => {
-        await fetch('http://localhost:3004/auth/logout', {
+        await fetch(`${process.env.REACT_APP_API_URL}/auth/logout`, {
             method: "POST",
         })
             .then((res) => res.json())

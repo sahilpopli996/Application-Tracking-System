@@ -15,13 +15,13 @@ export const ShortlistedDetails = () => {
         console.log(candidate_id);
         console.log(job_id);
         try {
-            fetch(`http://localhost:3004/users/user/${candidate_id}`)
+            fetch(`${process.env.REACT_APP_API_URL}/users/user/${candidate_id}`)
             .then((res) => res.json())
             .then((data) => {
                 setCandidate(data)
             })
 
-            fetch(`http://localhost:3004/jobs/current-job/${job_id}`)
+            fetch(`${process.env.REACT_APP_API_URL}/jobs/current-job/${job_id}`)
             .then((res) => res.json())
             .then((data) => {
                 setJob(data)
@@ -33,7 +33,7 @@ export const ShortlistedDetails = () => {
 
     useEffect(() => {
         try {
-            fetch(`http://localhost:3004/application/all-application/`)
+            fetch(`${process.env.REACT_APP_API_URL}/application/all-application/`)
             .then((res) => res.json())
             .then((data) => {
                 const filterData = data.filter(item => item.candidateID === candidate_id); 

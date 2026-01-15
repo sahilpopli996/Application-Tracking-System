@@ -43,7 +43,7 @@ export const JobDetails = () => {
     }, [])
 
     useEffect(() => {
-        fetch(`http://localhost:3004/jobs/current-job/${id}`).then(res => res.json()).then(
+        fetch(`${process.env.REACT_APP_API_URL}/jobs/current-job/${id}`).then(res => res.json()).then(
             data => { setJob(data); console.log(data); }
         )
     }
@@ -53,7 +53,7 @@ export const JobDetails = () => {
         if (job && job.applicants && job.applicants.length > 0) {
             const fetchApplicantsData = async () => {
                 try {
-                    const response = await fetch(`http://localhost:3004/users/all-users`);
+                    const response = await fetch(`${process.env.REACT_APP_API_URL}/users/all-users`);
                     if (!response.ok) {
                         throw new Error('Failed to fetch applicants data');
                     }
@@ -80,7 +80,7 @@ export const JobDetails = () => {
         setFile(file.name);
         const formData = new FormData();
         formData.append("resume", file);
-        fetch(`http://localhost:3004/upload/resume/${applicants._id}`, {
+        fetch(`${process.env.REACT_APP_API_URL}/upload/resume/${applicants._id}`, {
             method: "POST",
             body: formData,
         })

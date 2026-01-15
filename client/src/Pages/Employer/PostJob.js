@@ -28,7 +28,7 @@ export const PostJob = () => {
     const onSubmit = (data) =>{ 
         console.log(data)
         // send data to backend API
-        fetch("http://localhost:3004/jobs/post-job", {
+        fetch(`${process.env.REACT_APP_API_URL}/jobs/post-job`, {
             method: "POST",
             headers: {'content-type' : 'application/json'},
             body: JSON.stringify(data)

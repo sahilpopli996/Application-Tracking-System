@@ -8,7 +8,7 @@ export const SimilarJobs = () => {
     const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:3004/jobs/all-jobs").then(res => res.json()).then(
+        fetch(`${process.env.REACT_APP_API_URL}/jobs/all-jobs`).then(res => res.json()).then(
             data => {
                 const newData = data.slice(0, 6);
                 setJobs(newData)

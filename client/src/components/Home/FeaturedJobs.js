@@ -9,7 +9,7 @@ export const FeaturedJobs = () => {
 
     useEffect(() => {
         console.log("hello");
-        fetch("http://localhost:3004/jobs/all-jobs").then(res => res.json()).then(
+        fetch(`${process.env.REACT_APP_API_URL}/jobs/all-jobs`).then(res => res.json()).then(
             data => setJobs(data)
         );
     }, []);

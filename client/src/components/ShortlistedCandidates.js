@@ -13,7 +13,7 @@ export const ShortlistedCandidates = () => {
     useEffect(() => {
 
         try {
-            fetch(`http://localhost:3004/application/all-application/`)
+            fetch(`${process.env.REACT_APP_API_URL}/application/all-application/`)
             .then((res) => res.json())
             .then((data) => {
                 const filterData = data.filter(item => item.applicationStatus === "shortlist"); 
@@ -28,7 +28,7 @@ export const ShortlistedCandidates = () => {
     useEffect(() => {
         function fetchData(){
             try {
-                fetch(`http://localhost:3004/users/all-users/`)
+                fetch(`${process.env.REACT_APP_API_URL}/users/all-users/`)
                 .then((res) => res.json())
                 .then((data) => {
                     const filterData = data.filter(user => {
@@ -37,7 +37,7 @@ export const ShortlistedCandidates = () => {
                     setShortlistCandidate(filterData);
                     console.log(filterData);
                 })
-                fetch(`http://localhost:3004/jobs/all-jobs/`)
+                fetch(`${process.env.REACT_APP_API_URL}/jobs/all-jobs/`)
                 .then((res) => res.json())
                 .then((data) => {
                     const filterData = data.filter(job => {

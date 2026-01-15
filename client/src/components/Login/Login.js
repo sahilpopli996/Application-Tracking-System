@@ -19,7 +19,7 @@ export const Login = () => {
     const onSubmit = async (data) => {
         console.log(data)
         // send data to backend API
-        fetch("http://localhost:3004/auth/login", {
+        fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data),
